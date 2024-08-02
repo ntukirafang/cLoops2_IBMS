@@ -1,0 +1,20 @@
+#Step1 Docker load compressed file to read the docker environment
+docker load  -i cLoops2_tar.tar
+
+#Step2 Create a new container from images(compressed load)
+docker run --name cLoops2_container  -idt cloops2_images_final
+
+#Step3 Enter in container
+docker exec -it cLoops2_container /bin/bash
+
+#Step4 Find conda virtual environment
+conda env list
+
+#Step5 Enter conda virtual environment
+conda activate cLoops2_new
+
+#Step6 Enter test file folder
+cd /root/cloops2/example/test_run
+
+#Step7 Code
+bash run.sh
